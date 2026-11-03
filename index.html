@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siddharth Singh (Sid) — Python Backend Builder</title>
+  <meta name="description" content="Portfolio of Siddharth Singh (Sid) — Computer Science student and aspiring Python backend developer. Bold poster experience with real interactive magnifying glass.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🔍</text></svg>">
+
+  <!-- Typography: Cabinet Grotesk & Clash Display (Fontshare) -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=clash-display@600,700&display=swap">
+
+  <!-- Typography: Instrument Serif Italic (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       02 / NAVIGATION BAR
+       Three parts: Left (Logo), Centre (Nav links), Right (Black Pill CTA)
+       On phones: Row 1 has Logo & CTA, Row 2 has centered nav links
+       ========================================================================= -->
+  <header class="site-header" role="banner">
+    <nav class="navbar" aria-label="Main Portfolio Navigation">
+      <div class="nav-brand-group">
+        <a href="#top" class="nav-logo-link" aria-label="Siddharth Singh Home">
+          <img src="assets/logo-reference.png" alt="Siddharth Singh Logo" class="nav-logo-img" onerror="this.style.display='none'; document.getElementById('nav-fallback-wordmark').style.display='block';">
+          <span id="nav-fallback-wordmark" class="nav-wordmark" style="display: none;">sid.</span>
+        </a>
+      </div>
+
+      <div class="nav-links-group" role="navigation" aria-label="Sections">
+        <button type="button" class="nav-link-btn" data-dialog="dialog-work">Work</button>
+        <button type="button" class="nav-link-btn" data-dialog="dialog-about">About</button>
+        <button type="button" class="nav-link-btn" data-dialog="dialog-process">Process</button>
+        <button type="button" class="nav-link-btn" data-dialog="dialog-contact">Contact</button>
+      </div>
+
+      <div class="nav-cta-group">
+        <a href="mailto:siddharthsingh6621e@gmail.com" class="nav-cta-pill" id="nav-cta-pill" aria-label="Send email to Siddharth Singh">
+          Let's Talk <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       03 / HERO (POSTER-STYLE, BOTTOM-ALIGNED)
+       Contains the hero poster content and the interactive magnifying glass
+       ========================================================================= -->
+  <main class="hero-section" id="hero-section">
+    <!-- Original Hero Poster Content Layer -->
+    <div class="hero-poster" id="hero-poster">
+      
+      <!-- Top Bar: Small Label (Left) and Micro-Text Block (Right) -->
+      <div class="hero-top-row">
+        <div class="hero-label-tag">PORTFOLIO — 2026</div>
+        <div class="hero-micro-text" aria-label="Skills and Technical Stack Information">
+          SIDDHARTH SINGH // B.TECH COMPUTER SCIENCE & ENGINEERING // MANIPAL UNIVERSITY JAIPUR (2028)<br>
+          STACK: PYTHON · DATA STRUCTURES & ALGORITHMS · FASTAPI · FLASK · REST APIS · SQL · MYSQL · SQLITE · GIT · GITHUB · OBJECT-ORIENTED PROGRAMMING · SYSTEM DESIGN BASICS<br>
+          PROJECTS: PRAGATI (SMART INDIA HACKATHON 2026 CONCEPT - GOVTECH ACTIVITY MONITORING & MULTI-FACTOR RISK ASSESSMENT) · FORM-01 (EXPERIMENTAL INTERACTIVE UI - REACT/TYPESCRIPT & FASTAPI BACKEND) · PYTHON-DSA (PROBLEM SOLVING & ALGORITHMIC PATTERNS REPOSITORY) · RESUMEIQ (FLASK-BASED RESUME EVALUATOR) · LIBRARY MANAGEMENT SYSTEM (JAVA HTTP BACKEND & SQL DASHBOARD) · DEEP WORK TIMER<br>
+          CONTACT: SIDDHARTHSINGH6621E@GMAIL.COM // GITHUB.COM/SIDDHARTH-SINGH-CS // JAIPUR, INDIA
+        </div>
+      </div>
+
+      <!-- Main Poster Body: Headline, Subtext, Buttons and Hidden Secrets -->
+      <div class="hero-main-layout">
+        <div class="hero-left-column">
+          
+          <!-- Poster Headline (Cabinet Grotesk 900 + Instrument Serif italic for Sid.) -->
+          <h1 class="hero-headline">
+            <span class="hl-line">HI, I'M <span class="font-instrument-serif">Sid.</span></span>
+            <span class="hl-line">A PYTHON</span>
+            <span class="hl-line">BACKEND BUILDER</span>
+            <span class="hl-line">IN PROGRESS.</span>
+          </h1>
+
+          <!-- Poster Subtext -->
+          <p class="hero-subtext">
+            I’m a Computer Science student who loves building useful things with code. I’m learning Python backend engineering, sharpening my DSA skills, and turning ideas into real projects. Always <span class="font-instrument-serif">curious</span>, always building.
+          </p>
+
+          <!-- Poster Action Buttons -->
+          <div class="hero-actions">
+            <button type="button" class="btn-pill btn-solid" id="btn-see-work" data-dialog="dialog-work">
+              See my work <span class="arrow" aria-hidden="true">→</span>
+            </button>
+            <a href="mailto:siddharthsingh6621e@gmail.com" class="btn-pill btn-outline" id="hero-btn-contact">
+              Let's talk <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right / Empty Space Area: 4 Hidden Secrets (only revealed under magnifying glass) -->
+        <div class="hero-secrets-area" id="hero-secrets-area">
+          <div class="secret-item" id="secret-item-0" data-secret-index="0">
+            <span class="secret-text font-instrument-serif">psst… I'm Sid, and I'm always up for building something interesting 👋</span>
+          </div>
+          <div class="secret-item" id="secret-item-1" data-secret-index="1">
+            <span class="secret-text">CURRENT FOCUS: Python backend development · Data Structures & Algorithms</span>
+          </div>
+          <div class="secret-item" id="secret-item-2" data-secret-index="2">
+            <span class="secret-text">BUILDING THINGS: PRAGATI · FORM-01 · Python and web development projects</span>
+          </div>
+          <div class="secret-item" id="secret-item-3" data-secret-index="3">
+            <span class="secret-text">FIND ME: github.com/siddharth-singh-cs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Bottom Row: Credit, Hint & Secrets Found Counter -->
+      <footer class="hero-bottom-row">
+        <div class="bottom-credit">DESIGNED & BUILT BY SID</div>
+
+        <div class="bottom-hint" id="hint-move">
+          <span class="hint-pulse-dot" aria-hidden="true"></span>
+          MOVE THE GLASS · FIND 4 SECRETS
+        </div>
+
+        <div class="bottom-counter-container" id="bottom-counter-container" aria-live="polite">
+          <div class="counter-status" id="counter-status">
+            <span class="counter-text" id="counter-text">0 of 4 secrets found</span>
+            <div class="counter-dots" aria-hidden="true">
+              <span class="counter-dot" id="dot-0"></span>
+              <span class="counter-dot" id="dot-1"></span>
+              <span class="counter-dot" id="dot-2"></span>
+              <span class="counter-dot" id="dot-3"></span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- =======================================================================
+         04 / THE MAGNIFYING GLASS
+         Interactive element that follows cursor/touch/arrows or drifts
+         Contains the cloned hero scaled 1.9x, reflection highlights, and chrome rim
+         ======================================================================= -->
+    <div class="magnifier-assembly" id="magnifier" aria-hidden="true">
+      
+      <!-- The Circular Lens -->
+      <div class="lens-circular-window" id="lens-circular-window">
+        <!-- Exact Clone of Hero Poster for 1.9x Magnification -->
+        <div class="lens-clone-viewport" id="lens-clone-viewport" inert aria-hidden="true">
+          <!-- Cloned #hero-poster is injected here by JavaScript -->
+        </div>
+
+        <!-- Lens Optical Layer: Soft highlight top-left & slight darker edge -->
+        <div class="lens-glass-reflection"></div>
+
+        <!-- Polished Chrome Rim (Conic gradient masked to thin ring) -->
+        <div class="lens-chrome-rim"></div>
+      </div>
+
+      <!-- Magnifier Handle coming off the rim at -50° (upper-right) -->
+      <svg class="magnifier-handle-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Polished Chrome Gradient -->
+          <linearGradient id="chrome-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="18%" stop-color="#dadada"/>
+            <stop offset="42%" stop-color="#707070"/>
+            <stop offset="70%" stop-color="#f5f5f5"/>
+            <stop offset="90%" stop-color="#8a8a8a"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+          </linearGradient>
+
+          <!-- Chrome Neck Specular Gradient -->
+          <linearGradient id="chrome-collar" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#7a7a7a"/>
+            <stop offset="30%" stop-color="#ffffff"/>
+            <stop offset="60%" stop-color="#666666"/>
+            <stop offset="85%" stop-color="#d6d6d6"/>
+            <stop offset="100%" stop-color="#4a4a4a"/>
+          </linearGradient>
+
+          <!-- Glossy Black Grip Gradient -->
+          <linearGradient id="glossy-black" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a2928"/>
+            <stop offset="25%" stop-color="#141312"/>
+            <stop offset="65%" stop-color="#0a0a09"/>
+            <stop offset="100%" stop-color="#1d1c1a"/>
+          </linearGradient>
+
+          <!-- Handle Deep Red-Brown Drop Shadow Filter -->
+          <filter id="handle-shadow" x="-40%" y="-40%" width="220%" height="220%">
+            <feDropShadow dx="3" dy="5" stdDeviation="3.5" flood-color="#3c0606" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <!-- Handle Group aligned to Rim at -50° -->
+        <!-- Center of lens is (50, 50), Radius is 50. Rim point at -50 deg: (50 + 50*cos(-50), 50 + 50*sin(-50)) = (82.14, 11.7) -->
+        <g id="handle-group" transform="translate(82.14, 11.7) rotate(-50)" filter="url(#handle-shadow)">
+          
+          <!-- 1. Chrome Neck -->
+          <rect x="-1" y="-3.6" width="6" height="7.2" rx="0.8" fill="url(#chrome-grad)" stroke="#4a4a4a" stroke-width="0.3"/>
+
+          <!-- 2. Ribbed Chrome Collar (Multiple Ridges) -->
+          <g id="ribbed-collar">
+            <rect x="5" y="-4.2" width="7.5" height="8.4" rx="0.6" fill="url(#chrome-collar)"/>
+            <!-- Rib lines with alternating highlight and groove -->
+            <line x1="6.8" y1="-4.2" x2="6.8" y2="4.2" stroke="#ffffff" stroke-width="0.6"/>
+            <line x1="7.4" y1="-4.2" x2="7.4" y2="4.2" stroke="#2a2a2a" stroke-width="0.4"/>
+            <line x1="9.2" y1="-4.2" x2="9.2" y2="4.2" stroke="#ffffff" stroke-width="0.6"/>
+            <line x1="9.8" y1="-4.2" x2="9.8" y2="4.2" stroke="#2a2a2a" stroke-width="0.4"/>
+            <line x1="11.4" y1="-4.2" x2="11.4" y2="4.2" stroke="#ffffff" stroke-width="0.6"/>
+          </g>
+
+          <!-- 3. Long Glossy Black Ergonomic Grip -->
+          <path d="M 12.5 -3.8 
+                   C 26 -3.2, 45 -2.6, 62 -3.8 
+                   C 68 -4.4, 73 -4.2, 76 -3.4 
+                   C 78.5 -1.5, 78.5 1.5, 76 3.4 
+                   C 73 4.2, 68 4.4, 62 3.8 
+                   C 45 2.6, 26 3.2, 12.5 3.8 Z" 
+                fill="url(#glossy-black)" stroke="#0e0d0c" stroke-width="0.4"/>
+
+          <!-- Glossy Grip Specular Shine Line -->
+          <path d="M 14.5 -2.2 C 28 -1.7, 46 -1.2, 63 -2.2 C 68 -2.6, 72 -2.5, 74.5 -1.8" 
+                stroke="#ffffff" stroke-width="0.65" stroke-linecap="round" stroke-opacity="0.5" fill="none"/>
+
+          <!-- Secondary Soft Underside Glow -->
+          <path d="M 16 2.4 C 30 1.9, 48 1.5, 62 2.4" 
+                stroke="#444" stroke-width="0.35" stroke-linecap="round" fill="none"/>
+
+          <!-- 4. Rounded Chrome End-Cap (Pommel) -->
+          <path d="M 76 -3.4 C 79.5 -3.4, 82 -2, 82 0 C 82 2, 79.5 3.4, 76 3.4 Z" 
+                fill="url(#chrome-grad)" stroke="#3a3a3a" stroke-width="0.3"/>
+          <ellipse cx="80" cy="0" rx="1.5" ry="2.2" fill="#ffffff" fill-opacity="0.6"/>
+
+        </g>
+      </svg>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       06 / NATIVE POP-UP DIALOGS
+       Work, About, Process, Contact
+       All styled with black card, rounded 22px, red kicker, Clash Display title,
+       Escape key restoration, backdrop click to close.
+       ========================================================================= -->
+
+  <!-- 1. WORK POP-UP -->
+  <dialog class="modal-dialog" id="dialog-work" aria-labelledby="dialog-work-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-kicker">SELECTED WORK // 2026</span>
+        <button type="button" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+      <h2 class="modal-title" id="dialog-work-title">Featured Projects & Systems</h2>
+      <p class="modal-intro">
+        Verified applications, backend engineering projects, and practice repositories built by Siddharth.
+      </p>
+
+      <div class="projects-grid">
+        <!-- PRAGATI -->
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-badge">Smart India Hackathon 2026</span>
+            <a href="https://pragati-5g2a.onrender.com/landing" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="Open PRAGATI live demo">Live Demo ↗</a>
+          </div>
+          <h3 class="project-name">
+            <a href="https://pragati-5g2a.onrender.com/landing" target="_blank" rel="noopener noreferrer">PRAGATI ↗</a>
+          </h3>
+          <p class="project-desc">
+            A web-based integrated project-monitoring platform developed for the Smart India Hackathon 2026 concept. Designed for transparent government activity tracking and multi-factor project risk assessment.
+          </p>
+          <div class="project-tags">
+            <span class="tag">GovTech</span>
+            <span class="tag">Risk Assessment</span>
+            <span class="tag">Python / Flask</span>
+            <span class="tag">SQL</span>
+          </div>
+        </article>
+
+        <!-- Python-DSA -->
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-badge">Active Practice</span>
+            <a href="https://github.com/siddharth-singh-cs/Python-DSA.git" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="Open Python-DSA GitHub repository">Repository ↗</a>
+          </div>
+          <h3 class="project-name">
+            <a href="https://github.com/siddharth-singh-cs/Python-DSA.git" target="_blank" rel="noopener noreferrer">Python-DSA ↗</a>
+          </h3>
+          <p class="project-desc">
+            A collection of Python solutions and practice problems documenting consistent daily problem-solving, implementation of fundamental data structures, search/sort algorithms, and algorithmic patterns.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">Data Structures</span>
+            <span class="tag">Problem Solving</span>
+          </div>
+        </article>
+
+        <!-- FORM-01 -->
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-badge">In Development</span>
+          </div>
+          <h3 class="project-name">FORM-01</h3>
+          <p class="project-desc">
+            An experimental portfolio project exploring rich micro-interactions, hardware-accelerated animations, and responsive layouts planned with a React and TypeScript frontend and a FastAPI Python backend.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Python</span>
+          </div>
+        </article>
+
+        <!-- ResumeIQ -->
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-badge">Backend Project</span>
+          </div>
+          <h3 class="project-name">ResumeIQ</h3>
+          <p class="project-desc">
+            A Flask-based application developed for automated resume parsing, keyword matching, and structured candidate evaluation.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Resume Parsing</span>
+            <span class="tag">REST API</span>
+          </div>
+        </article>
+
+        <!-- Library Management System -->
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-badge">Systems & DB</span>
+          </div>
+          <h3 class="project-name">Library Management System</h3>
+          <p class="project-desc">
+            A modular Java application with an HTTP server backend, relational database integration (MySQL / SQLite), and a dashboard for catalog management and patron checkout records.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">HTTP Backend</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Dashboard</span>
+          </div>
+        </article>
+
+        <!-- Deep Work Timer -->
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-badge">Productivity</span>
+          </div>
+          <h3 class="project-name">Deep Work Timer</h3>
+          <p class="project-desc">
+            A minimalist, distraction-free productivity timer implementing customized Pomodoro and deep work block workflows with audio-visual cues.
+          </p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Audio API</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://github.com/siddharth-singh-cs" target="_blank" rel="noopener noreferrer" class="btn-modal-action">
+          View all repositories on GitHub ↗
+        </a>
+        <button type="button" class="btn-modal-secondary close-dialog-btn">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 2. ABOUT POP-UP -->
+  <dialog class="modal-dialog" id="dialog-about" aria-labelledby="dialog-about-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-kicker">PROFILE // BACKGROUND</span>
+        <button type="button" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+      <h2 class="modal-title" id="dialog-about-title">About Siddharth</h2>
+      <div class="modal-body-text">
+        <p>
+          Hi, I'm Sid. I'm a Computer Science student exploring Python backend engineering and problem-solving through DSA. I enjoy learning by building projects, experimenting with ideas and gradually turning what I learn into working software.
+        </p>
+        <p>
+          Currently in my second year pursuing a B.Tech in Computer Science and Engineering at Manipal University Jaipur (Class of 2028). My core interest lies in backend services, data modeling, algorithm optimization, and creating real-world utility through clean, maintainable code.
+        </p>
+      </div>
+
+      <div class="about-highlights-grid">
+        <div class="highlight-item">
+          <span class="highlight-label">Degree</span>
+          <span class="highlight-value">B.Tech in CSE (2028)</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-label">University</span>
+          <span class="highlight-value">Manipal University Jaipur</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-label">Specialization</span>
+          <span class="highlight-value">Python Backend & DSA</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-label">Status</span>
+          <span class="highlight-value">Available for projects</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://drive.google.com/file/d/1p0gFTrkM4deLIiLc_hxShkc09-yEtG1t/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-modal-action">
+          View Verified Résumé (PDF) ↗
+        </a>
+        <button type="button" class="btn-modal-secondary close-dialog-btn">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3. PROCESS POP-UP -->
+  <dialog class="modal-dialog" id="dialog-process" aria-labelledby="dialog-process-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-kicker">METHODOLOGY // HOW I WORK</span>
+        <button type="button" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+      <h2 class="modal-title" id="dialog-process-title">Engineering Process</h2>
+      <div class="modal-body-text">
+        <p>
+          I start with an idea, break it into manageable steps, build a working version, test it, learn from what breaks, and improve it. I believe in learning by building rather than just watching tutorials.
+        </p>
+      </div>
+
+      <div class="process-steps-list">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h4>Understand & Scope</h4>
+            <p>Define the actual problem, clarify the inputs and expected outputs, and strip away unnecessary complexity.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h4>Architecture & Data Model</h4>
+            <p>Design the data structures, REST API contracts, and database schema before writing large blocks of application logic.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h4>Build Working Prototype</h4>
+            <p>Construct a minimal end-to-end working system first so edge cases and bottlenecks become visible early.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h4>Test, Break & Improve</h4>
+            <p>Stress-test with real inputs, fix failure points, optimize bottlenecks, and document key lessons.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-action" data-dialog-switch="dialog-work">Explore Projects ↗</button>
+        <button type="button" class="btn-modal-secondary close-dialog-btn">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 4. CONTACT POP-UP -->
+  <dialog class="modal-dialog" id="dialog-contact" aria-labelledby="dialog-contact-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-kicker">GET IN TOUCH // LET'S TALK</span>
+        <button type="button" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+      <h2 class="modal-title" id="dialog-contact-title">Let's build something?</h2>
+      <div class="modal-body-text">
+        <p>
+          Have a project idea, collaboration opportunity, or just want to talk about technology? I'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-channels">
+        <a href="mailto:siddharthsingh6621e@gmail.com" class="channel-card primary-channel">
+          <div class="channel-icon">✉</div>
+          <div class="channel-info">
+            <span class="channel-title">Direct Email</span>
+            <span class="channel-value">siddharthsingh6621e@gmail.com</span>
+          </div>
+          <span class="channel-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/siddharth-singh-cs" target="_blank" rel="noopener noreferrer" class="channel-card">
+          <div class="channel-icon">⌥</div>
+          <div class="channel-info">
+            <span class="channel-title">GitHub Profile</span>
+            <span class="channel-value">github.com/siddharth-singh-cs</span>
+          </div>
+          <span class="channel-arrow">↗</span>
+        </a>
+
+        <a href="https://linkedin.com/in/siddharth-singh-1b9693378/" target="_blank" rel="noopener noreferrer" class="channel-card">
+          <div class="channel-icon">in</div>
+          <div class="channel-info">
+            <span class="channel-title">LinkedIn</span>
+            <span class="channel-value">linkedin.com/in/siddharth-singh-1b9693378</span>
+          </div>
+          <span class="channel-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="modal-footer">
+        <a href="mailto:siddharthsingh6621e@gmail.com" class="btn-modal-action">
+          Send Email Now ↗
+        </a>
+        <button type="button" class="btn-modal-secondary close-dialog-btn">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Configuration and Logic Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

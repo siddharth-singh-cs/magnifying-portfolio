@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <style>
+    .wordmark {
+      font-family: 'Clash Display', 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      letter-spacing: -0.04em;
+      fill: #f1ece2;
+    }
+    .dot {
+      fill: #f7c600;
+    }
+  </style>
+  <text x="0" y="44" class="wordmark">siddharth<tspan class="dot">.</tspan></text>
+</svg>
+

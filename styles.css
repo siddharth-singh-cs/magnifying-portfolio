@@ -1,0 +1,1206 @@
+/* =============================================================================
+   THE MAGNIFYING GLASS PORTFOLIO — STYLESHEET
+   Siddharth Singh (Sid) — Python Backend Builder
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   01 / CSS Variables & Reset
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Color Palette: Bold Red Poster */
+  --bg-red-light: #f0352a;
+  --bg-red-mid: #e3211b;
+  --bg-red-edge: #cf1a14;
+  --text-near-black: #0e0d0c;
+  --text-pure-black: #000000;
+  --card-dark: #0e0d0c;
+  --card-dark-border: rgba(255, 255, 255, 0.12);
+  --card-text-muted: #a8a4a0;
+  --card-text-bright: #f5f3f0;
+  --accent-red: #e3211b;
+
+  /* Typography */
+  --font-headline: 'Cabinet Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  --font-button: 'Clash Display', 'Cabinet Grotesk', system-ui, sans-serif;
+
+  /* Dimensions */
+  --page-padding-x: 48px;
+  --glass-size: clamp(190px, 25vw, 400px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--bg-red-mid);
+  background: radial-gradient(circle at 30% 20%, var(--bg-red-light) 0%, var(--bg-red-mid) 50%, var(--bg-red-edge) 100%);
+  background-attachment: fixed;
+  color: var(--text-near-black);
+  font-family: var(--font-headline);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -----------------------------------------------------------------------------
+   02 / Navigation Bar
+   Three parts: Left (Logo), Centre (Nav links), Right (Black Pill CTA)
+   On phones: Row 1 Logo & CTA, Row 2 Centered 4 links
+   ----------------------------------------------------------------------------- */
+.site-header {
+  position: relative;
+  width: 100%;
+  padding: 24px var(--page-padding-x) 16px var(--page-padding-x);
+  z-index: 40;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+
+/* Left: Personal Logo */
+.nav-brand-group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.nav-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo-link:hover {
+  opacity: 0.85;
+}
+
+.nav-logo-img {
+  width: 124px;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: contrast(130%) brightness(0.9);
+}
+
+.nav-wordmark {
+  font-family: var(--font-button);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--text-near-black);
+  letter-spacing: -0.04em;
+}
+
+/* Centre: Work, About, Process, Contact */
+.nav-links-group {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-near-black);
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 17px;
+  cursor: pointer;
+  padding: 6px 4px;
+  transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.4, 1), opacity 0.16s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+.nav-link-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+.nav-link-btn:active {
+  transform: translateY(0);
+}
+
+/* Right: Black pill "Let's Talk ↗" with red text */
+.nav-cta-group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.nav-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 26px;
+  background-color: var(--text-near-black);
+  color: var(--bg-red-mid);
+  font-family: var(--font-button);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.16s ease, opacity 0.16s ease, box-shadow 0.16s ease;
+  box-shadow: 0 4px 12px rgba(14, 13, 12, 0.25);
+  white-space: nowrap;
+}
+
+.nav-cta-pill .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.nav-cta-pill:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+  box-shadow: 0 8px 18px rgba(14, 13, 12, 0.35);
+}
+
+.nav-cta-pill:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+/* -----------------------------------------------------------------------------
+   03 / Hero Section (Poster Style, Bottom-Aligned)
+   ----------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  min-height: calc(100dvh - 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--page-padding-x) 28px var(--page-padding-x);
+  cursor: none; /* Cursor is hidden over the hero; glass takes its place */
+  overflow: hidden;
+}
+
+/* Base Poster Layout */
+.hero-poster {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 32px;
+}
+
+/* Top Row of Hero: Left small label & Right 7px micro-text */
+.hero-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.hero-label-tag {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-near-black);
+  user-select: none;
+}
+
+/* Tiny 7px Uppercase Micro-text (16% opacity ink on page, readable under glass) */
+.hero-micro-text {
+  max-width: 380px;
+  font-family: var(--font-headline);
+  font-size: 7px;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-near-black);
+  opacity: 0.16;
+  text-align: right;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Main Poster Body Layout: Left column + Right secrets area */
+.hero-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+  gap: 40px;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: auto;
+}
+
+.hero-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Headline: Cabinet Grotesk 900, clamp(56px, 7.6vw, 140px), line-height .86, letter-spacing -.045em */
+.hero-headline {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: clamp(56px, 7.6vw, 140px);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: var(--text-near-black);
+  user-select: none;
+  margin: 0;
+}
+
+.hl-line {
+  display: block;
+}
+
+/* Instrument Serif Italic for "Sid." and "curious" */
+.font-instrument-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+/* Subtext: Bold, 18–26px */
+.hero-subtext {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(18px, 1.8vw, 26px);
+  line-height: 1.35;
+  color: var(--text-near-black);
+  max-width: 680px;
+  user-select: none;
+}
+
+/* Buttons: 56px Tall Pills */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.btn-pill {
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 9999px;
+  font-family: var(--font-button);
+  font-weight: 600;
+  font-size: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.4, 1), background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* "See my work →": Solid black with red text */
+.btn-solid {
+  background-color: var(--text-near-black);
+  color: var(--bg-red-mid);
+  border: none;
+  box-shadow: 0 6px 18px rgba(14, 13, 12, 0.35);
+}
+
+.btn-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(14, 13, 12, 0.45);
+}
+
+.btn-solid .arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn-solid:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* "Let's talk ↗": 2px black outline that fills black on hover */
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-near-black);
+  border: 2px solid var(--text-near-black);
+}
+
+.btn-outline:hover {
+  background-color: var(--text-near-black);
+  color: var(--bg-red-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(14, 13, 12, 0.35);
+}
+
+.btn-outline .arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn-outline:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+/* -----------------------------------------------------------------------------
+   05 / Four Hidden Secrets
+   Invisible on the page (opacity: 0) and only show inside the lens
+   ----------------------------------------------------------------------------- */
+.hero-secrets-area {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-bottom: 24px;
+}
+
+.secret-item {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: clamp(14px, 1.25vw, 17px);
+  line-height: 1.4;
+  color: var(--text-near-black);
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(14, 13, 12, 0.35);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* -----------------------------------------------------------------------------
+   Hero Bottom Row (Three Items)
+   Left: "DESIGNED & BUILT BY SID"
+   Centre: "MOVE THE GLASS · FIND 4 SECRETS" (fades out after moving)
+   Right: "0 of 4 secrets found" with 4 small outlined dots
+   ----------------------------------------------------------------------------- */
+.hero-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid rgba(14, 13, 12, 0.2);
+  font-family: var(--font-headline);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-near-black);
+}
+
+.bottom-credit {
+  justify-self: start;
+}
+
+.bottom-hint {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.4, 1), transform 0.6s ease;
+  user-select: none;
+}
+
+.bottom-hint.faded {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+.hint-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--text-near-black);
+  animation: pulse-hint 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-hint {
+  0%, 100% { transform: scale(0.85); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.bottom-counter-container {
+  justify-self: end;
+}
+
+.counter-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counter-text {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.counter-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.counter-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.8px solid var(--text-near-black);
+  background-color: transparent;
+  transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.counter-dot.filled {
+  background-color: var(--text-near-black);
+  transform: scale(1.15);
+}
+
+/* Counter Completed Button */
+.all-found-cta {
+  background: transparent;
+  border: none;
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-near-black);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: transform 0.16s ease, background-color 0.16s ease;
+  animation: bounce-glow 2s infinite ease-in-out;
+}
+
+.all-found-cta:hover {
+  transform: translateY(-2px);
+  background-color: rgba(14, 13, 12, 0.12);
+}
+
+@keyframes bounce-glow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* -----------------------------------------------------------------------------
+   04 / The Magnifying Glass
+   Size: clamp(190px, 25vw, 400px)
+   Chrome rim conic gradient, soft highlight top-left, darker edge, drop shadow,
+   handle at -50° upper-right.
+   ----------------------------------------------------------------------------- */
+.magnifier-assembly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--glass-size);
+  height: var(--glass-size);
+  pointer-events: none;
+  will-change: transform;
+  z-index: 50;
+  overflow: visible;
+}
+
+/* The Circular Lens Window */
+.lens-circular-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    24px 38px 48px rgba(65, 8, 8, 0.54),
+    12px 18px 24px rgba(45, 5, 5, 0.38);
+}
+
+/* Cloned Content Layer Inside Lens */
+.lens-clone-viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Inside the Lens: Secrets are VISIBLE and crisp! */
+.lens-clone-viewport .hero-secrets-area .secret-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: var(--text-pure-black) !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1.5px solid var(--text-pure-black) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Micro-text is readable under the lens */
+.lens-clone-viewport .hero-micro-text {
+  opacity: 0.95 !important;
+  color: var(--text-pure-black) !important;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Hide original hint in the clone to keep view clean */
+.lens-clone-viewport .bottom-hint {
+  display: none !important;
+}
+
+/* Optical Reflection & Shadow Layers inside Lens */
+.lens-glass-reflection {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 8;
+  /* Top-left soft highlight & slight darker edge */
+  box-shadow:
+    inset 0 0 28px rgba(14, 13, 12, 0.45),
+    inset 0 0 8px rgba(14, 13, 12, 0.7);
+  background: radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 32%, transparent 62%);
+}
+
+/* Polished Chrome Rim (Conic gradient masked to thin ring) */
+.lens-chrome-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10;
+  background: conic-gradient(
+    from 45deg,
+    #d4d4d4 0deg,
+    #ffffff 25deg,
+    #6e6e6e 65deg,
+    #cccccc 115deg,
+    #ffffff 160deg,
+    #4a4a4a 200deg,
+    #d6d6d6 245deg,
+    #ffffff 290deg,
+    #646464 330deg,
+    #d4d4d4 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - clamp(9px, 1.25vw, 15px)), #000 calc(100% - clamp(8px, 1.15vw, 14px)));
+  mask: radial-gradient(farthest-side, transparent calc(100% - clamp(9px, 1.25vw, 15px)), #000 calc(100% - clamp(8px, 1.15vw, 14px)));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 0 1px rgba(14, 13, 12, 0.5);
+}
+
+/* Handle SVG attached to lens upper-right (-50°) */
+.magnifier-handle-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 12;
+}
+
+/* -----------------------------------------------------------------------------
+   06 / Native Dialog Pop-ups
+   Black card, rounded 22px, red kicker, Clash Display title, Close button
+   ----------------------------------------------------------------------------- */
+.modal-dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: auto;
+  max-width: 680px;
+  width: calc(100% - 36px);
+  color: var(--card-text-bright);
+  font-family: var(--font-headline);
+  box-shadow: none;
+  outline: none;
+}
+
+.modal-dialog::backdrop {
+  background: rgba(14, 13, 12, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: backdrop-fade-in 0.25s ease;
+}
+
+@keyframes backdrop-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-card {
+  background-color: var(--card-dark);
+  border-radius: 22px;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--card-dark-border);
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.65),
+    0 10px 25px rgba(0, 0, 0, 0.45);
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  animation: card-pop-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes card-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.modal-kicker {
+  color: var(--accent-red);
+  font-family: var(--font-headline);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--card-text-muted);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px;
+  line-height: 1;
+  border-radius: 50%;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--card-text-bright);
+  transform: scale(1.1);
+}
+
+.modal-title {
+  font-family: var(--font-button);
+  font-weight: 600;
+  font-size: clamp(24px, 3.2vw, 34px);
+  color: var(--card-text-bright);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.modal-intro {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--card-text-muted);
+  margin-bottom: 24px;
+}
+
+.modal-body-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--card-text-bright);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+/* Projects Grid inside Work Pop-up */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.project-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.project-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+}
+
+.project-link-icon {
+  font-family: var(--font-button);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--card-text-bright);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.project-link-icon:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.project-name {
+  font-family: var(--font-button);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--card-text-bright);
+  margin-bottom: 8px;
+}
+
+.project-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-name a:hover {
+  color: var(--accent-red);
+}
+
+.project-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--card-text-muted);
+  margin-bottom: 12px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--card-text-muted);
+}
+
+/* About Highlights Grid */
+.about-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.highlight-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-red);
+}
+
+.highlight-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--card-text-bright);
+}
+
+/* Process Steps List */
+.process-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.step-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.step-number {
+  font-family: var(--font-button);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--accent-red);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.step-content h4 {
+  font-family: var(--font-button);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--card-text-bright);
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--card-text-muted);
+}
+
+/* Contact Channels */
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.channel-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--card-text-bright);
+  text-decoration: none;
+  transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+.channel-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.primary-channel {
+  border-color: rgba(227, 33, 27, 0.4);
+}
+
+.channel-icon {
+  font-size: 18px;
+  width: 32px;
+  color: var(--accent-red);
+}
+
+.channel-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.channel-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-text-muted);
+}
+
+.channel-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--card-text-bright);
+}
+
+.channel-arrow {
+  font-size: 16px;
+  color: var(--card-text-muted);
+  transition: transform 0.16s ease;
+}
+
+.channel-card:hover .channel-arrow {
+  transform: translate(2px, -2px);
+  color: var(--card-text-bright);
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-modal-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 24px;
+  background-color: var(--accent-red);
+  color: #ffffff;
+  font-family: var(--font-button);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.btn-modal-action:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-modal-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: transparent;
+  color: var(--card-text-muted);
+  font-family: var(--font-button);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.btn-modal-secondary:hover {
+  color: var(--card-text-bright);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* -----------------------------------------------------------------------------
+   07 / Responsive Breakpoints (Tablet: 768px, Phone: 390px)
+   ----------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  :root {
+    --page-padding-x: 24px;
+  }
+
+  .hero-main-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* On tablets and smaller, stack secrets under the buttons */
+  .hero-secrets-area {
+    order: 3;
+    padding-bottom: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding-x: 18px;
+    --glass-size: clamp(180px, 42vw, 280px);
+  }
+
+  /* Nav: Logo and Let's Talk on row 1, 4 links centered on row 2 */
+  .site-header {
+    padding: 16px var(--page-padding-x) 12px var(--page-padding-x);
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav-brand-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo-img {
+    width: 100px;
+  }
+
+  .nav-links-group {
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .nav-link-btn {
+    font-size: 15px;
+  }
+
+  /* Move CTA pill next to logo on row 1 */
+  .nav-cta-group {
+    display: none; /* Managed by DOM order or row wrap */
+  }
+
+  /* In mobile, we place CTA pill in nav-brand-group */
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 12px 16px;
+  }
+
+  .nav-brand-group {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .nav-cta-group {
+    display: flex;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+  }
+
+  .nav-cta-pill {
+    padding: 9px 18px;
+    font-size: 14px;
+  }
+
+  .nav-links-group {
+    grid-column: 1 / 3;
+    grid-row: 2 / 2;
+    justify-content: center;
+  }
+
+  /* Micro text block */
+  .hero-micro-text {
+    max-width: 200px;
+    font-size: 6.5px;
+  }
+
+  /* Bottom Row wraps or stacks cleanly */
+  .hero-bottom-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+    padding-top: 18px;
+  }
+
+  .bottom-credit {
+    justify-self: center;
+  }
+
+  .bottom-hint {
+    justify-self: center;
+  }
+
+  .bottom-counter-container {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding-x: 14px;
+    --glass-size: clamp(170px, 48vw, 240px);
+  }
+
+  .hero-section {
+    padding: 0 var(--page-padding-x) 20px var(--page-padding-x);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-pill {
+    width: 100%;
+    height: 52px;
+  }
+
+  .nav-links-group {
+    gap: 16px;
+  }
+
+  .nav-link-btn {
+    font-size: 14px;
+    padding: 4px 2px;
+  }
+
+  .hero-micro-text {
+    display: none; /* Keeps phone layout pristine and zero overflow */
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   08 / Prefers Reduced Motion
+   No automatic drifting, instant transitions
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hint-pulse-dot {
+    animation: none;
+  }
+
+  .all-found-cta {
+    animation: none;
+  }
+}
+
