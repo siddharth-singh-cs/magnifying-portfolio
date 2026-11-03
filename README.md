@@ -87,6 +87,9 @@ portfolio - v2/
 
 Tested and verified across all standard responsive breakpoints:
 - **Desktop (1440×900+):** Full-bleed poster layout with ~48px padding, empty space on right housing the 4 secrets.
+
+- ## Deployed Link
+- https://siddharth-singh-cs.github.io/magnifying-portfolio/
 - **Tablet (768px):** Secrets cleanly stacked under buttons, responsive magnifying glass diameter.
 - **Mobile (390px / 375px):** Two-row navigation (Logo + CTA on row 1, centered navigation links on row 2), touch-optimized lens interaction, zero horizontal overflow.
 
